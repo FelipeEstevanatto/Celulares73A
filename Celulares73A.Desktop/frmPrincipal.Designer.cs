@@ -151,6 +151,7 @@
             // 
             // cmbFabricante
             // 
+            this.cmbFabricante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFabricante.FormattingEnabled = true;
             this.cmbFabricante.Location = new System.Drawing.Point(140, 84);
             this.cmbFabricante.Name = "cmbFabricante";
@@ -236,6 +237,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(857, 450);
             this.Controls.Add(this.groupBoxPesquisar);
             this.Controls.Add(this.btnNovo);

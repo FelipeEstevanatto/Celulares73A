@@ -93,7 +93,7 @@ namespace Celulares73A.Model
             {
                 param.Add(aparelho.Id_Aparelho);
 
-                sql = "UPDATE aparelho SET";
+                sql = "UPDATE aparelho SET ";
                 sql +=      "id_fabricante=@1, ";
                 sql +=      "modelo=@2, ";
                 sql +=      "altura=@3, ";
@@ -102,7 +102,7 @@ namespace Celulares73A.Model
                 sql +=      "peso=@6, ";
                 sql +=      "preco=@7, ";
                 sql +=      "quantidade=@8, ";
-                sql +=      "desconto=@9) ";
+                sql +=      "desconto=@9 ";
                 sql += "WHERE id_aparelho = @10;";
             }
 
@@ -132,35 +132,30 @@ namespace Celulares73A.Model
             ConexaoBanco.executar(sql, param);
         }
 
-        public static void FazerPedido(Pedido pedido, string observacoes = null)
+        public static Pedido FazerPedido(Aparelho aparelho, string observacoes = null)
         {
-            string sql;
+            Pedido pedido = new Pedido();
+            pedido.Aparelho = aparelho;
+            pedido.DataHoraPedido = DateTime.Now;
 
+            string sql;
+            
             List<object> param = new List<object>
             {
-                pedido.Aparelho,
-                pedido.Quantidade,
-                pedido.DataHoraPedido,
+                pedido.Aparelho.Id_Aparelho,
                 observacoes
             };
 
-            if (pedido.Id_Pedido == 0)
-            {
-                sql = "INSERT INTO pedido (" +
+            sql = "INSERT INTO pedido (" +
                     "id_aparelho, " +
-                    "datahorapedido" +
+                    "datahorapedido, " +
                     "observacao) ";
-                sql += "VALUES (@1, @2, @3);";
-            }
-            else
-            {
-                sql = "UPDATE pedido SET" +
-                    "id_aparelho = @1," +
-                    "datahorapedido   = @2," +
-                    "observacao = @3;";
-            }
-
+            sql += "VALUES (@1, '" + pedido.DataHoraPedido.ToString("yyyy-MM-dd HH:mm:ss") + "', @3);";
+  
             ConexaoBanco.executar(sql, param);
+            aparelho.Quantidade--;
+            Salvar(aparelho);
+            return pedido;
         }
 
         //Métodos que permitem todas as pesquisas e filtros do sistema
@@ -266,6 +261,38 @@ namespace Celulares73A.Model
 
             dtr.Close();
             return fabricantes;
+        }
+        // Método para inserir um novo aparelho no sistema
+        public static void Inserir(Aparelho aparelho)
+        {
+            string sql;
+            
+            List<object> param = new List<object>
+            {
+                aparelho.Fabricante.Id_Fabricante,
+                aparelho.Modelo,
+                aparelho.Altura,
+                aparelho.Largura,
+                aparelho.Espessura,
+                aparelho.Peso,
+                aparelho.Preco,
+                aparelho.Quantidade,
+                aparelho.Desconto,
+            };
+
+            sql = "INSERT INTO aparelho (" +
+                    "id_fabricante, " +
+                    "modelo, " +
+                    "altura, " +
+                    "largura, " +
+                    "espessura, " +
+                    "peso, " +
+                    "preco, " +
+                    "quantidade, " +
+                    "desconto) ";
+            sql += "VALUES (@1, @2, @3, @4, @5, @6, @7, @8, @9);";
+
+            ConexaoBanco.executar(sql, param);
         }
     }
 }

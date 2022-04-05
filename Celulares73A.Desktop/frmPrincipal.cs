@@ -35,14 +35,24 @@ namespace Celulares73A.Desktop
                 this.Close();
             }
         }
+        public void AtualizarListagem()
+        {
+            aparelhos = Servico.BuscarAparelho(txtBoxSearch.Text);
+            lstCelulares.DataSource = aparelhos;
+        }
+        public void LimparFiltros()
+        {
+            numericPrecoMin.Value = 0;
+            numericPrecoMax.Value = 0;
+            txtBoxSearch.Text = "";
+            cmbFabricante.SelectedIndex = -1;
+        }
 
         private void btnSearchModelo_Click(object sender, EventArgs e)
         {
             try
             {
-                aparelhos = Servico.BuscarAparelho(txtBoxSearch.Text);
-
-                lstCelulares.DataSource = aparelhos;
+                AtualizarListagem();
             }
             catch (ApplicationException ex)
             {
@@ -74,7 +84,9 @@ namespace Celulares73A.Desktop
         private void btnNovo_Click(object sender, EventArgs e)
         {
             frmNovo frmNovo = new frmNovo();
-            frmNovo.Show();
+            frmNovo.ShowDialog();
+
+            AtualizarListagem();
         }
 
         private void btnComprar_Click(object sender, EventArgs e)
@@ -83,18 +95,20 @@ namespace Celulares73A.Desktop
             if (lstCelulares.SelectedIndex >= 0)
             {
                 frmComprar frmComprar = new frmComprar(aparelhos[lstCelulares.SelectedIndex]);
-                frmComprar.Show();
+                frmComprar.ShowDialog();
+
+                AtualizarListagem();
+            }
+            else
+            {
+                MessageBox.Show("Selecione um item da lista", "Celular CTI 2022", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
         private void btnLimparFiltro_Click(object sender, EventArgs e)
         {
-            aparelhos = Servico.BuscarAparelho();
-            lstCelulares.DataSource = aparelhos;
-            numericPrecoMin.Value = 0;
-            numericPrecoMax.Value = 0;
-            txtBoxSearch.Text = "";
-            cmbFabricante.SelectedIndex = -1;
+            AtualizarListagem();
+            LimparFiltros();
         }
     }
 }

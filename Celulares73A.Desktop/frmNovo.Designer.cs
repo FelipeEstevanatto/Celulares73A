@@ -32,18 +32,12 @@
             this.lblFabricante = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtBoxLargura = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtBoxAltura = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtBoxEspessura = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtBoxPeso = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtBoxQuantidade = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtBoxPreco = new System.Windows.Forms.TextBox();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.txtBoxModelo = new System.Windows.Forms.TextBox();
             this.lblLarguraCM = new System.Windows.Forms.Label();
@@ -52,11 +46,24 @@
             this.lblPesoG = new System.Windows.Forms.Label();
             this.lblDescontoPorcentagem = new System.Windows.Forms.Label();
             this.numericDesconto = new System.Windows.Forms.NumericUpDown();
+            this.numericPreco = new System.Windows.Forms.NumericUpDown();
+            this.numericQuantidade = new System.Windows.Forms.NumericUpDown();
+            this.numericPeso = new System.Windows.Forms.NumericUpDown();
+            this.numericEspessura = new System.Windows.Forms.NumericUpDown();
+            this.numericAltura = new System.Windows.Forms.NumericUpDown();
+            this.numericLargura = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numericDesconto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericPreco)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericQuantidade)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericPeso)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEspessura)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericAltura)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericLargura)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbFabricante
             // 
+            this.cmbFabricante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFabricante.FormattingEnabled = true;
             this.cmbFabricante.Location = new System.Drawing.Point(214, 12);
             this.cmbFabricante.Name = "cmbFabricante";
@@ -90,13 +97,6 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Largura:";
             // 
-            // txtBoxLargura
-            // 
-            this.txtBoxLargura.Location = new System.Drawing.Point(214, 94);
-            this.txtBoxLargura.Name = "txtBoxLargura";
-            this.txtBoxLargura.Size = new System.Drawing.Size(121, 22);
-            this.txtBoxLargura.TabIndex = 5;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -105,13 +105,6 @@
             this.label4.Size = new System.Drawing.Size(44, 16);
             this.label4.TabIndex = 6;
             this.label4.Text = "Altura:";
-            // 
-            // txtBoxAltura
-            // 
-            this.txtBoxAltura.Location = new System.Drawing.Point(214, 134);
-            this.txtBoxAltura.Name = "txtBoxAltura";
-            this.txtBoxAltura.Size = new System.Drawing.Size(121, 22);
-            this.txtBoxAltura.TabIndex = 7;
             // 
             // label5
             // 
@@ -122,13 +115,6 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Espessura:";
             // 
-            // txtBoxEspessura
-            // 
-            this.txtBoxEspessura.Location = new System.Drawing.Point(214, 174);
-            this.txtBoxEspessura.Name = "txtBoxEspessura";
-            this.txtBoxEspessura.Size = new System.Drawing.Size(121, 22);
-            this.txtBoxEspessura.TabIndex = 9;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -137,13 +123,6 @@
             this.label6.Size = new System.Drawing.Size(42, 16);
             this.label6.TabIndex = 10;
             this.label6.Text = "Peso:";
-            // 
-            // txtBoxPeso
-            // 
-            this.txtBoxPeso.Location = new System.Drawing.Point(214, 214);
-            this.txtBoxPeso.Name = "txtBoxPeso";
-            this.txtBoxPeso.Size = new System.Drawing.Size(121, 22);
-            this.txtBoxPeso.TabIndex = 11;
             // 
             // label7
             // 
@@ -163,13 +142,6 @@
             this.label8.TabIndex = 12;
             this.label8.Text = "Quantidade:";
             // 
-            // txtBoxQuantidade
-            // 
-            this.txtBoxQuantidade.Location = new System.Drawing.Point(214, 254);
-            this.txtBoxQuantidade.Name = "txtBoxQuantidade";
-            this.txtBoxQuantidade.Size = new System.Drawing.Size(121, 22);
-            this.txtBoxQuantidade.TabIndex = 13;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -178,13 +150,6 @@
             this.label9.Size = new System.Drawing.Size(71, 16);
             this.label9.TabIndex = 14;
             this.label9.Text = "Preço (R$)";
-            // 
-            // txtBoxPreco
-            // 
-            this.txtBoxPreco.Location = new System.Drawing.Point(214, 294);
-            this.txtBoxPreco.Name = "txtBoxPreco";
-            this.txtBoxPreco.Size = new System.Drawing.Size(121, 22);
-            this.txtBoxPreco.TabIndex = 15;
             // 
             // btnSalvar
             // 
@@ -256,11 +221,94 @@
             this.numericDesconto.Size = new System.Drawing.Size(120, 22);
             this.numericDesconto.TabIndex = 23;
             // 
+            // numericPreco
+            // 
+            this.numericPreco.DecimalPlaces = 2;
+            this.numericPreco.Location = new System.Drawing.Point(214, 293);
+            this.numericPreco.Maximum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            0});
+            this.numericPreco.Name = "numericPreco";
+            this.numericPreco.Size = new System.Drawing.Size(120, 22);
+            this.numericPreco.TabIndex = 24;
+            // 
+            // numericQuantidade
+            // 
+            this.numericQuantidade.Location = new System.Drawing.Point(214, 249);
+            this.numericQuantidade.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
+            this.numericQuantidade.Name = "numericQuantidade";
+            this.numericQuantidade.Size = new System.Drawing.Size(120, 22);
+            this.numericQuantidade.TabIndex = 25;
+            // 
+            // numericPeso
+            // 
+            this.numericPeso.DecimalPlaces = 2;
+            this.numericPeso.Location = new System.Drawing.Point(215, 213);
+            this.numericPeso.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.numericPeso.Name = "numericPeso";
+            this.numericPeso.Size = new System.Drawing.Size(120, 22);
+            this.numericPeso.TabIndex = 26;
+            // 
+            // numericEspessura
+            // 
+            this.numericEspessura.DecimalPlaces = 2;
+            this.numericEspessura.Location = new System.Drawing.Point(214, 175);
+            this.numericEspessura.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.numericEspessura.Name = "numericEspessura";
+            this.numericEspessura.Size = new System.Drawing.Size(120, 22);
+            this.numericEspessura.TabIndex = 27;
+            // 
+            // numericAltura
+            // 
+            this.numericAltura.DecimalPlaces = 2;
+            this.numericAltura.Location = new System.Drawing.Point(215, 135);
+            this.numericAltura.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.numericAltura.Name = "numericAltura";
+            this.numericAltura.Size = new System.Drawing.Size(120, 22);
+            this.numericAltura.TabIndex = 28;
+            // 
+            // numericLargura
+            // 
+            this.numericLargura.DecimalPlaces = 2;
+            this.numericLargura.Location = new System.Drawing.Point(215, 95);
+            this.numericLargura.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.numericLargura.Name = "numericLargura";
+            this.numericLargura.Size = new System.Drawing.Size(120, 22);
+            this.numericLargura.TabIndex = 29;
+            // 
             // frmNovo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(533, 450);
+            this.Controls.Add(this.numericLargura);
+            this.Controls.Add(this.numericAltura);
+            this.Controls.Add(this.numericEspessura);
+            this.Controls.Add(this.numericPeso);
+            this.Controls.Add(this.numericQuantidade);
+            this.Controls.Add(this.numericPreco);
             this.Controls.Add(this.numericDesconto);
             this.Controls.Add(this.lblDescontoPorcentagem);
             this.Controls.Add(this.lblPesoG);
@@ -269,18 +317,12 @@
             this.Controls.Add(this.lblLarguraCM);
             this.Controls.Add(this.txtBoxModelo);
             this.Controls.Add(this.btnSalvar);
-            this.Controls.Add(this.txtBoxPreco);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.txtBoxQuantidade);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtBoxPeso);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtBoxEspessura);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtBoxAltura);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtBoxLargura);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblFabricante);
@@ -289,6 +331,12 @@
             this.Text = "Novo Aparelho";
             this.Load += new System.EventHandler(this.frmNovo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericDesconto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericPreco)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericQuantidade)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericPeso)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEspessura)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericAltura)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericLargura)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,18 +348,12 @@
         private System.Windows.Forms.Label lblFabricante;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtBoxLargura;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtBoxAltura;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtBoxEspessura;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtBoxPeso;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtBoxQuantidade;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtBoxPreco;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.TextBox txtBoxModelo;
         private System.Windows.Forms.Label lblLarguraCM;
@@ -320,5 +362,11 @@
         private System.Windows.Forms.Label lblPesoG;
         private System.Windows.Forms.Label lblDescontoPorcentagem;
         private System.Windows.Forms.NumericUpDown numericDesconto;
+        private System.Windows.Forms.NumericUpDown numericPreco;
+        private System.Windows.Forms.NumericUpDown numericQuantidade;
+        private System.Windows.Forms.NumericUpDown numericPeso;
+        private System.Windows.Forms.NumericUpDown numericEspessura;
+        private System.Windows.Forms.NumericUpDown numericAltura;
+        private System.Windows.Forms.NumericUpDown numericLargura;
     }
 }

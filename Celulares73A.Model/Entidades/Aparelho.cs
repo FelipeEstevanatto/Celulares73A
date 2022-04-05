@@ -25,10 +25,7 @@ namespace Celulares73A.Model.Entidades
         public Fabricante Fabricante
         {
             get { return fabricante; }
-            set
-            {
-                fabricante = value;
-            }
+            set { fabricante = value; }
         }
 
         public string Modelo
