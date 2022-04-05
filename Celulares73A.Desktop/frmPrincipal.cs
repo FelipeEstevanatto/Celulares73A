@@ -61,8 +61,14 @@ namespace Celulares73A.Desktop
 
         private void btnSearchPreco_Click(object sender, EventArgs e)
         {
-            aparelhos = Servico.BuscarAparelho(numericPrecoMin.Value, numericPrecoMax.Value);
-            lstCelulares.DataSource = aparelhos;
+            try
+            {
+                aparelhos = Servico.BuscarAparelho(numericPrecoMin.Value, numericPrecoMax.Value);
+                lstCelulares.DataSource = aparelhos;
+            } catch(Exception error)
+            {
+                MessageBox.Show(error.Message, "Celular CTI 2022", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void btnNovo_Click(object sender, EventArgs e)

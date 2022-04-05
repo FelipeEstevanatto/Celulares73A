@@ -181,28 +181,6 @@ namespace Celulares73A.Model
             dtr.Close();
             return aparelhos;
         }
-        // Buscar aparelho para comprar
-        //public static List<Aparelho> BuscarAparelho(int id)
-        //{
-        //    List<Aparelho> aparelho = new List<Aparelho>();
-        //    List<object> param = new List<object>
-        //    {
-        //        id
-        //    };
-
-        //    string sql;
-        //    sql = "SELECT * " +
-        //            "FROM aparelho A INNER JOIN fabricante F " +
-        //            "ON A.id_fabricante = F.id_fabricante " +
-        //            "WHERE A.id_aparelho = @1 " +
-        //          "ORDER BY A.modelo;";
-        //    NpgsqlDataReader dtr = ConexaoBanco.selecionar(sql, param);
-        //    while (dtr.Read())
-        //        aparelho.Add(ObjAparelho(ref dtr));
-
-        //    dtr.Close();
-        //    return aparelho;
-        //}
         public static List<Aparelho> BuscarAparelho(string modelo)
         {
             List<Aparelho> aparelhos = new List<Aparelho>();
@@ -227,6 +205,9 @@ namespace Celulares73A.Model
         public static List<Aparelho> BuscarAparelho(decimal precoMin,
                                                         decimal precoMax)
         {
+            if (precoMin > precoMax)
+                throw new Exception("O preço mínimo não pode ser maior que o preço máximo");
+            
             List<Aparelho> aparelhos = new List<Aparelho>();
             List<object> param = new List<object>
             {

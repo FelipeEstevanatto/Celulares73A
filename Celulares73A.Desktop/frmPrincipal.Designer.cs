@@ -36,6 +36,7 @@
             this.btnComprar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.groupBoxPesquisar = new System.Windows.Forms.GroupBox();
+            this.btnLimparFiltro = new System.Windows.Forms.Button();
             this.cmbFabricante = new System.Windows.Forms.ComboBox();
             this.numericPrecoMax = new System.Windows.Forms.NumericUpDown();
             this.numericPrecoMin = new System.Windows.Forms.NumericUpDown();
@@ -44,7 +45,6 @@
             this.btnSearchPreco = new System.Windows.Forms.Button();
             this.lblFabricante = new System.Windows.Forms.Label();
             this.btnSearchFabricante = new System.Windows.Forms.Button();
-            this.btnLimparFiltro = new System.Windows.Forms.Button();
             this.groupBoxCelulares.SuspendLayout();
             this.groupBoxPesquisar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericPrecoMax)).BeginInit();
@@ -139,6 +139,16 @@
             this.groupBoxPesquisar.TabStop = false;
             this.groupBoxPesquisar.Text = "Pesquisar";
             // 
+            // btnLimparFiltro
+            // 
+            this.btnLimparFiltro.Location = new System.Drawing.Point(594, 58);
+            this.btnLimparFiltro.Name = "btnLimparFiltro";
+            this.btnLimparFiltro.Size = new System.Drawing.Size(140, 49);
+            this.btnLimparFiltro.TabIndex = 14;
+            this.btnLimparFiltro.Text = "Limpar Filtro";
+            this.btnLimparFiltro.UseVisualStyleBackColor = true;
+            this.btnLimparFiltro.Click += new System.EventHandler(this.btnLimparFiltro_Click);
+            // 
             // cmbFabricante
             // 
             this.cmbFabricante.FormattingEnabled = true;
@@ -149,27 +159,31 @@
             // 
             // numericPrecoMax
             // 
+            this.numericPrecoMax.DecimalPlaces = 2;
             this.numericPrecoMax.Location = new System.Drawing.Point(281, 20);
             this.numericPrecoMax.Maximum = new decimal(new int[] {
-            99999,
+            999999999,
             0,
             0,
             0});
             this.numericPrecoMax.Name = "numericPrecoMax";
             this.numericPrecoMax.Size = new System.Drawing.Size(98, 22);
             this.numericPrecoMax.TabIndex = 12;
+            this.numericPrecoMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // numericPrecoMin
             // 
+            this.numericPrecoMin.DecimalPlaces = 2;
             this.numericPrecoMin.Location = new System.Drawing.Point(140, 20);
             this.numericPrecoMin.Maximum = new decimal(new int[] {
-            99999,
-            0,
+            1410065407,
+            2,
             0,
             0});
             this.numericPrecoMin.Name = "numericPrecoMin";
             this.numericPrecoMin.Size = new System.Drawing.Size(114, 22);
             this.numericPrecoMin.TabIndex = 11;
+            this.numericPrecoMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblAbetween
             // 
@@ -217,16 +231,6 @@
             this.btnSearchFabricante.Text = "Pesquisar";
             this.btnSearchFabricante.UseVisualStyleBackColor = true;
             this.btnSearchFabricante.Click += new System.EventHandler(this.btnSearchFabricante_Click);
-            // 
-            // btnLimparFiltro
-            // 
-            this.btnLimparFiltro.Location = new System.Drawing.Point(594, 58);
-            this.btnLimparFiltro.Name = "btnLimparFiltro";
-            this.btnLimparFiltro.Size = new System.Drawing.Size(140, 49);
-            this.btnLimparFiltro.TabIndex = 14;
-            this.btnLimparFiltro.Text = "Limpar Filtro";
-            this.btnLimparFiltro.UseVisualStyleBackColor = true;
-            this.btnLimparFiltro.Click += new System.EventHandler(this.btnLimparFiltro_Click);
             // 
             // frmPrincipal
             // 

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBoxFabricante = new System.Windows.Forms.ComboBox();
+            this.cmbFabricante = new System.Windows.Forms.ComboBox();
             this.lblFabricante = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,7 +40,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtBoxPeso = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtBoxDesconto = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtBoxQuantidade = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -52,15 +51,17 @@
             this.lblEspessuraCM = new System.Windows.Forms.Label();
             this.lblPesoG = new System.Windows.Forms.Label();
             this.lblDescontoPorcentagem = new System.Windows.Forms.Label();
+            this.numericDesconto = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numericDesconto)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBoxFabricante
+            // cmbFabricante
             // 
-            this.comboBoxFabricante.FormattingEnabled = true;
-            this.comboBoxFabricante.Location = new System.Drawing.Point(214, 12);
-            this.comboBoxFabricante.Name = "comboBoxFabricante";
-            this.comboBoxFabricante.Size = new System.Drawing.Size(121, 24);
-            this.comboBoxFabricante.TabIndex = 0;
+            this.cmbFabricante.FormattingEnabled = true;
+            this.cmbFabricante.Location = new System.Drawing.Point(214, 12);
+            this.cmbFabricante.Name = "cmbFabricante";
+            this.cmbFabricante.Size = new System.Drawing.Size(121, 24);
+            this.cmbFabricante.TabIndex = 0;
             // 
             // lblFabricante
             // 
@@ -153,13 +154,6 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Desconto";
             // 
-            // txtBoxDesconto
-            // 
-            this.txtBoxDesconto.Location = new System.Drawing.Point(214, 334);
-            this.txtBoxDesconto.Name = "txtBoxDesconto";
-            this.txtBoxDesconto.Size = new System.Drawing.Size(121, 22);
-            this.txtBoxDesconto.TabIndex = 13;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -248,17 +242,26 @@
             // lblDescontoPorcentagem
             // 
             this.lblDescontoPorcentagem.AutoSize = true;
-            this.lblDescontoPorcentagem.Location = new System.Drawing.Point(341, 340);
+            this.lblDescontoPorcentagem.Location = new System.Drawing.Point(341, 335);
             this.lblDescontoPorcentagem.Name = "lblDescontoPorcentagem";
             this.lblDescontoPorcentagem.Size = new System.Drawing.Size(19, 16);
             this.lblDescontoPorcentagem.TabIndex = 22;
             this.lblDescontoPorcentagem.Text = "%";
+            // 
+            // numericDesconto
+            // 
+            this.numericDesconto.DecimalPlaces = 2;
+            this.numericDesconto.Location = new System.Drawing.Point(215, 333);
+            this.numericDesconto.Name = "numericDesconto";
+            this.numericDesconto.Size = new System.Drawing.Size(120, 22);
+            this.numericDesconto.TabIndex = 23;
             // 
             // frmNovo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(533, 450);
+            this.Controls.Add(this.numericDesconto);
             this.Controls.Add(this.lblDescontoPorcentagem);
             this.Controls.Add(this.lblPesoG);
             this.Controls.Add(this.lblEspessuraCM);
@@ -270,7 +273,6 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtBoxQuantidade);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtBoxDesconto);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtBoxPeso);
             this.Controls.Add(this.label6);
@@ -282,10 +284,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblFabricante);
-            this.Controls.Add(this.comboBoxFabricante);
+            this.Controls.Add(this.cmbFabricante);
             this.Name = "frmNovo";
             this.Text = "Novo Aparelho";
             this.Load += new System.EventHandler(this.frmNovo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numericDesconto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,7 +296,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBoxFabricante;
+        private System.Windows.Forms.ComboBox cmbFabricante;
         private System.Windows.Forms.Label lblFabricante;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -305,7 +308,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtBoxPeso;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtBoxDesconto;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtBoxQuantidade;
         private System.Windows.Forms.Label label9;
@@ -317,5 +319,6 @@
         private System.Windows.Forms.Label lblEspessuraCM;
         private System.Windows.Forms.Label lblPesoG;
         private System.Windows.Forms.Label lblDescontoPorcentagem;
+        private System.Windows.Forms.NumericUpDown numericDesconto;
     }
 }
