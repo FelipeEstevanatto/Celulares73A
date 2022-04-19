@@ -29,9 +29,15 @@ namespace Celulares73A.Desktop
         }
         private void btnComprar_Click(object sender, EventArgs e)
         {
-            Servico.FazerPedido(this.aparelho, txtBoxObservacoes.Text);
-            MessageBox.Show("Pedido realizado com sucesso!", "Celulares CTI 2022", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
+            try
+            {
+                Servico.FazerPedido(this.aparelho, txtBoxObservacoes.Text);
+                MessageBox.Show("Pedido realizado com sucesso!", "Celulares CTI 2022", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            } catch (ApplicationException ex)
+            {
+                MessageBox.Show("Erro ao realizar o pedido: " + ex.Message, "Celulares CTI 2022", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

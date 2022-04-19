@@ -94,10 +94,20 @@ namespace Celulares73A.Desktop
             // Send the currently selected item to the form
             if (lstCelulares.SelectedIndex >= 0)
             {
-                frmComprar frmComprar = new frmComprar(aparelhos[lstCelulares.SelectedIndex]);
-                frmComprar.ShowDialog();
+                // check if product quantity is greater than 0
+                if (aparelhos[lstCelulares.SelectedIndex].Quantidade > 0)
+                {
+                    // send the selected item to the form
+                    frmComprar frmComprar = new frmComprar(aparelhos[lstCelulares.SelectedIndex]);
+                    frmComprar.ShowDialog();
 
-                AtualizarListagem();
+                    // update the list
+                    AtualizarListagem();
+                }
+                else
+                {
+                    MessageBox.Show("Não há mais este produto em estoque.", "Celular CTI 2022", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
             else
             {

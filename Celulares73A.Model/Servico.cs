@@ -9,7 +9,7 @@ namespace Celulares73A.Model
     public static class Servico
     {
         // Metodos que criam os objetos que representam
-        // as entdades utilziadas no projeto
+        // as entidades utilizadas no projeto
         public static Fabricante ObjFabricante(ref NpgsqlDataReader dtr)
         {
             Fabricante fabricante = new Fabricante
@@ -134,27 +134,46 @@ namespace Celulares73A.Model
 
         public static Pedido FazerPedido(Aparelho aparelho, string observacoes = null)
         {
-            Pedido pedido = new Pedido();
-            pedido.Aparelho = aparelho;
-            pedido.DataHoraPedido = DateTime.Now;
-
             string sql;
-            
-            List<object> param = new List<object>
-            {
-                pedido.Aparelho.Id_Aparelho,
-                observacoes
-            };
+            Pedido pedido = new Pedido();
 
-            sql = "INSERT INTO pedido (" +
-                    "id_aparelho, " +
-                    "datahorapedido, " +
-                    "observacao) ";
-            sql += "VALUES (@1, '" + pedido.DataHoraPedido.ToString("yyyy-MM-dd HH:mm:ss") + "', @3);";
+            try
+            {
+                sql = "SELECT CURRENT_TIMESTAMP AT TIME ZONE 'BRT' as databaseserver";
+                NpgsqlDataReader dtr = ConexaoBanco.selecionar(sql);
+                dtr.Read();
+                pedido.DataHoraPedido = Convert.ToDateTime(dtr["databaseserver"]);
+                dtr.Close();
+
+                pedido.Aparelho = aparelho;
+                pedido.DataHoraPedido = DateTime.Now;
+
+                ConexaoBanco.executar("BEGIN");
+ 
+                List<object> param = new List<object>
+                {
+                    pedido.Aparelho.Id_Aparelho,
+                    observacoes
+                };
+                
+                aparelho.Quantidade--;
+                Salvar(aparelho);
+
+                sql = "INSERT INTO pedido (" +
+                        "id_aparelho, " +
+                        "datahorapedido, " +
+                        "observacao) ";
+                sql += "VALUES (@1, '" + pedido.DataHoraPedido.ToString("yyyy-MM-dd HH:mm:ss") + "', @3);";
   
-            ConexaoBanco.executar(sql, param);
-            aparelho.Quantidade--;
-            Salvar(aparelho);
+                ConexaoBanco.executar(sql, param);
+                
+                ConexaoBanco.executar("COMMIT");
+                
+            } catch (Exception ex)
+            {
+                ConexaoBanco.executar("ROLLBACK");
+                throw new ApplicationException("Não foi possível realizar o pedido. \n\nMais detalhes:" + ex.Message);
+            }
             return pedido;
         }
 
