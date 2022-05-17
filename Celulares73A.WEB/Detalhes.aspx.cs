@@ -21,7 +21,7 @@ namespace Celulares73A.WEB
             lblFabricante.InnerText = ap.Fabricante.Nome;
             lblDimensions.InnerText = ap.Largura + " cm x " + ap.Altura  + " cm X " + ap.Espessura;
             lblQuantidadeEstoque.InnerText = ap.Quantidade.ToString();
-            lblPreco.InnerText = ap.Preco.ToString();
+            lblPreco.InnerText = "R$ " + ap.Preco.ToString();
             lblDesconto.InnerText = ap.Desconto.ToString("#0.0") + "%";
         }
     }
