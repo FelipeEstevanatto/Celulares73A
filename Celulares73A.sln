@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Celulares73A.Model", "Celul
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Celulares73A.Desktop", "Celulares73A.Desktop\Celulares73A.Desktop.csproj", "{99705087-343D-4936-837B-A79BE93A04E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Celulares73A.WEB", "Celulares73A.WEB\Celulares73A.WEB.csproj", "{458F00D1-4ACC-49F7-A5CA-DA86B06EE414}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Celulares73A.Web", "Celulares73A.WEB\Celulares73A.Web.csproj", "{458F00D1-4ACC-49F7-A5CA-DA86B06EE414}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

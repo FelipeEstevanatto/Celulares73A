@@ -216,6 +216,27 @@ namespace Celulares73A.Model
             dtr.Close();
             return aparelhos;
         }
+        public static Aparelho BuscarAparelho(Int64 id_aparelho)
+        {
+            Aparelho aparelho = new Aparelho();
+            List<object> param = new List<object>
+            {
+                id_aparelho
+            };
+
+            string sql;
+            sql = "SELECT * " +
+                    "FROM aparelho A INNER JOIN fabricante F " +
+                    "ON A.id_fabricante = F.id_fabricante " +
+                    "WHERE A.id_aparelho = @1 ";
+
+            NpgsqlDataReader dtr = ConexaoBanco.selecionar(sql, param);
+            if (dtr.Read())
+                aparelho = ObjAparelho(ref dtr);
+
+            dtr.Close();
+            return aparelho;
+        }
         public static List<Aparelho> BuscarAparelho(decimal precoMin,
                                                         decimal precoMax)
         {
