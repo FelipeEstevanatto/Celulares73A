@@ -1,5 +1,5 @@
 # Celulares73A
 
-Creidi do Bicudo
+Atividade avaliativa do Bicudo
 
-Tem inserção e compra de celulares
+CRUD de celulares
